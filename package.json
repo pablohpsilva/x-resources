@@ -1,5 +1,5 @@
 {
-  "name": "axios-resources",
+  "name": "x-resources",
   "version": "1.0.0",
   "description": "A axios library for creating resources",
   "main": "index.js",
