@@ -108,8 +108,8 @@ userResources.create({
 // url: https://api.github.com/users/1
 // payload: { name: 'john', age: 20 }
 userResources.append(
-  { id: 1 },
   {
+    id: 1
     name: 'john',
     age: 20
   })
@@ -117,8 +117,8 @@ userResources.append(
 // HTTP method: POST
 // url: https://api.github.com/users/filterBy=name
 userResources.update(
-  { id: 1 },
   {
+    id: 1
     name: 'john',
     age: 25
   })
@@ -126,6 +126,15 @@ userResources.update(
 // HTTP method: POST
 // url: https://api.github.com/users/:id
 userResources.remove({ id: 1 })
+
+
+// HTTP method: POST
+// HTTP header: Content-Type:application/pdf
+// url: https://api.github.com/users/:id
+userResources.remove(
+  { id: 1 },
+  { headers: { 'Content-Type': 'application/pdf' }} // you can send extra params too
+)
 ```
 
 You're done! Any of those resources will always return a **Promise** from the [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) API.
