@@ -1,0 +1,42 @@
+{
+  "name": "axios-resources",
+  "version": "1.0.0",
+  "description": "A axios library for creating resources",
+  "main": "index.js",
+  "scripts": {
+    "start": "rollup -w -c rollup.config.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pablohpsilva/axios-resources.git"
+  },
+  "keywords": [
+    "axios",
+    "resources",
+    "axios-resource",
+    "axios-resources"
+  ],
+  "author": "Pablo Henrique Penha Silva <pablohpsilva@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pablohpsilva/axios-resources/issues"
+  },
+  "homepage": "https://github.com/pablohpsilva/axios-resources#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "jest": "^22.4.3",
+    "rollup": "^0.57.1",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-json": "^2.3.0",
+    "rollup-plugin-node-resolve": "^3.3.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
