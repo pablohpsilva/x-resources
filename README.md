@@ -23,8 +23,8 @@ In short, we want **clean** your code from a mess like this:
 ```javascript
 axios.get(`/userURL/${between}/?filter=${filter}`)
   .then(response => {
-    this.someData = response.body;
-  });
+    this.someData = response.body
+  })
   .catch(responseError => {
     // handle error
   })
@@ -35,8 +35,8 @@ To something way more **readable** and **easy to maintain** like this:
 ```javascript
 userResource.fetch({ between, filter })
   .then(response => {
-    this.someData = response.body;
-  });
+    this.someData = response.body
+  })
   .catch(responseError => {
     // handle error
   })
