@@ -39,6 +39,7 @@ const createResources = (HttpClientLibrary, name, action, baseURL) => {
     }
   }
 }
+
 export const resources = curry((baseURL, customActions = {}) => {
   const actions = Object.assign(
     getDefaultActions(),
