@@ -114,7 +114,7 @@ userResources.append(
     age: 20
   })
 
-// HTTP method: POST
+// HTTP method: PUT
 // url: https://api.github.com/users/filterBy=name
 userResources.update(
   {
@@ -123,14 +123,14 @@ userResources.update(
     age: 25
   })
 
-// HTTP method: POST
-// url: https://api.github.com/users/:id
+// HTTP method: DELETE
+// url: https://api.github.com/users/1
 userResources.remove({ id: 1 })
 
 
-// HTTP method: POST
+// HTTP method: DELETE
 // HTTP header: Content-Type:application/pdf
-// url: https://api.github.com/users/:id
+// url: https://api.github.com/users/1
 userResources.remove(
   { id: 1 },
   { headers: { 'Content-Type': 'application/pdf' }} // you can send extra params too
