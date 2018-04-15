@@ -40,5 +40,11 @@
   },
   "dependencies": {
     "axios": "^0.18.0"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/dist/",
+      "<rootDir>/node_modules/"
+    ]
   }
 }

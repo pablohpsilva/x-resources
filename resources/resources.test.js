@@ -1,4 +1,10 @@
-import resources from '../resources'
+import {
+  applyQueryStringsOnURL,
+  getHttpClientLibraryMethod,
+  prepareBaseURL,
+  createResources,
+  resources
+} from '../resources'
 
 const simpleActions = {
   fetchUsers: { method: 'GET', url: '/users' },
@@ -48,4 +54,37 @@ test('fetchSpecificUser from resource', async () => {
   expect(data.login).toBe(username)
 
   expect(response.request.responseURL).toBe(`${baseURL}/users/${username}`)
+})
+
+test('applyQueryStringsOnURL should replace correctly the URL', () => {
+  const url = `${baseURL}/:username`
+  const params = { username: 1 }
+
+  expect(applyQueryStringsOnURL(url, params)).toBe(`${baseURL}/1`)
+})
+
+test('getHttpClientLibraryMethod should return the correct funcion', () => {
+  const axios = { get() { return 1 } }
+  const method = 'get'
+
+  expect(getHttpClientLibraryMethod(axios, method)()).toBe(1)
+})
+
+test('prepareBaseURL should return the correct funcion', () => {
+  const url = '/user/:username'
+  const params = { username: 1 }
+
+  expect(prepareBaseURL(baseURL, url, params)).toBe(`${baseURL}/user/1`)
+})
+
+test('createResources should return the resource', () => {
+  const axios = { get() { return 1 } }
+  const method = 'get'
+  const name = 'fetch'
+
+  const action = { method: 'GET', url: '/user/:username' }
+
+  // HttpClientLibrary, name, action, baseURL
+
+  expect(createResources(axios, name, action, baseURL).fetch()).toBe(1)
 })

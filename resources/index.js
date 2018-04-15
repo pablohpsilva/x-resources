@@ -20,14 +20,14 @@ export const applyQueryStringsOnURL = (url, params) => {
     : url
 }
 
-const getHttpClientLibraryMethod = (HttpClientLibrary, method = 'get') => HttpClientLibrary[method.toLowerCase()]
+export const getHttpClientLibraryMethod = (HttpClientLibrary, method = 'get') => HttpClientLibrary[method.toLowerCase()]
 
 export const prepareBaseURL = (baseURL, url = '', params = {}) => {
   const replacedUrlWithTokens = applyQueryStringsOnURL(url, params)
   return `${baseURL}${replacedUrlWithTokens}`
 }
 
-const createResources = (HttpClientLibrary, name, action, baseURL) => {
+export const createResources = (HttpClientLibrary, name, action, baseURL) => {
   const httpClientLibraryMethod = getHttpClientLibraryMethod(HttpClientLibrary, action.method)
   return {
     [name](params = {}, extra = {}) {
