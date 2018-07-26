@@ -40,16 +40,18 @@ export const createResources = (HttpClientLibrary, name, action, baseURL) => {
   }
 }
 
-export const resources = curry((baseURL, customActions = {}) => {
+export const resources = curry((baseURL, customActions = {}, options = {}) => {
   const actions = Object.assign(
     getDefaultActions(),
     customActions
   )
 
+  const axiosInstance = options.axiosInstance || axios
+
   return Object.keys(actions)
     .reduce((acc, key) => Object.assign(
       acc,
-      createResources(axios, key, actions[key], baseURL)
+      createResources(axiosInstance, key, actions[key], baseURL)
     ), {})
 })
 
