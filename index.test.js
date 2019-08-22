@@ -1,3 +1,5 @@
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 import { resources } from './dist/axios-resources'
 
 const simpleActions = {

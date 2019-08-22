@@ -33,8 +33,11 @@ export const createResources = (HttpClientLibrary, name, action, baseURL) => {
     [name](params = {}, extra = {}) {
       return httpClientLibraryMethod(
         prepareBaseURL(baseURL, action.url, params),
-        params,
-        Object.assign({ headers: { 'Content-Type': 'application/json' } }, extra)
+        {
+          ...params,
+          headers: { 'Content-Type': 'application/json' },
+          ...extra
+        }
       )
     }
   }

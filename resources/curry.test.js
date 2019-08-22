@@ -1,3 +1,5 @@
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 import curry from './curry'
 
 const curryFn = curry((a, b, c) => a + b + c)
