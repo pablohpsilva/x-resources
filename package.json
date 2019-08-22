@@ -1,6 +1,6 @@
 {
   "name": "x-resources",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "A axios library for creating resources",
   "main": "index.js",
   "scripts": {
