@@ -1,11 +1,12 @@
 {
   "name": "x-resources",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A axios library for creating resources",
   "main": "dist/index.js",
   "scripts": {
     "build": "mhy bb --mhy-env=prod",
     "start": "mhy bb --mhy-env=prod -- --watch",
+    "release": "mhy sv",
     "test": "jest"
   },
   "repository": {
