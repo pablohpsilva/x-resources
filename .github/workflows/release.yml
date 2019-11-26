@@ -9,8 +9,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node_version: [12]
-        os: [ubuntu-latest]
+        node_version: [11, 12, 13]
+        os: [ubuntu-latest, macaOS-latest]
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js ${{ matrix.node_version }}
@@ -27,6 +27,7 @@ jobs:
           npm install
           npm run build
           npm test
+
   release:
     needs: test
     name: Release on node ${{ matrix.node_version }} and ${{ matrix.os }}
@@ -42,7 +43,12 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm publish
+
+      - name: install mhy globally
+        run: npm i -g mhy@latest
+
+      - name: Publihing...
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 # name: Node.js Package
