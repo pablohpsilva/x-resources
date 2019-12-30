@@ -4,9 +4,10 @@
   "description": "A axios library for creating resources",
   "main": "dist/index.js",
   "scripts": {
-    "build": "mhy bb --mhy-env=prod",
+    "build": "npm run install-peers && mhy bb --mhy-env=prod",
     "start": "mhy bb --mhy-env=prod -- --watch",
     "release": "mhy sv",
+    "install-peers": "npm i && mhy dep install peers",
     "test": "jest"
   },
   "repository": {
@@ -59,6 +60,9 @@
     "rollup-plugin-uglify": "^6.0.4"
   },
   "peerDependencies": {
+    "axios": "^0.19.0"
+  },
+  "mhyDependencies": {
     "axios": "^0.19.0"
   },
   "jest": {
