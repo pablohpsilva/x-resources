@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/pablohpsilva/axios-resources/compare/v1.4.0...v1.4.1) (2020-05-30)
+
+
+### Bug Fixes
+
+* using correct url and checking ([6801fc5](https://github.com/pablohpsilva/axios-resources/commit/6801fc599145c056ef77ba50d184131c2bbdf6b0))
+
 ## [1.4.0](https://github.com/pablohpsilva/axios-resources/compare/v1.3.0...v1.4.0) (2020-05-30)
 
 ## [1.3.0](https://github.com/pablohpsilva/axios-resources/compare/v1.1.2...v1.3.0) (2020-05-30)
