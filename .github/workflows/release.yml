@@ -29,12 +29,18 @@ jobs:
                   npm test
 
     build:
-        runs-on: ubuntu-latest
+        needs: test
+        name: Build on ${{ matrix.node_version }} and ${{ matrix.os }}
+        runs-on: ${{ matrix.os }}
+        strategy:
+            matrix:
+                node_version: [12]
+                os: [ubuntu-latest]
         steps:
             - uses: actions/checkout@v2
 
-            - name: install mhy globally
-              run: npm i -g mhy@latest
+            # - name: install mhy globally
+            #   run: npm i -g mhy@latest
 
             - name: clean project
               run: npm run prerelease
@@ -42,8 +48,15 @@ jobs:
             - name: release project
               run: npm run release
 
+            - name: update github tags
+              run: |
+                  git config --global user.name 'pablohpsilva'
+                  git config --global user.email 'pablohpsilva@users.noreply.github.com'
+                  git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+                  git push --follow-tags origin master
+
     release:
-        needs: test
+        needs: build
         name: Release on node ${{ matrix.node_version }} and ${{ matrix.os }}
         runs-on: ${{ matrix.os }}
         strategy:
@@ -58,8 +71,8 @@ jobs:
                   node-version: 12
                   registry-url: https://registry.npmjs.org/
 
-            - name: install mhy globally
-              run: npm i -g mhy@latest
+            # - name: install mhy globally
+            #   run: npm i -g mhy@latest
 
             - name: Publihing...
               run: npm publish
