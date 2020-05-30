@@ -1,1 +1,1 @@
-module.exports = require('./dist/axios-resources');
+module.exports = require("./dist/index");

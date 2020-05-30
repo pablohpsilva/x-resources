@@ -1,5 +1,9 @@
-/dist
+.circleci
+/docker
+/src
 /build
+/docs
+book.json
 logs
 *.log
 npm-debug.log*

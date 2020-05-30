@@ -1,61 +1,61 @@
 name: Releasing Node App
 on:
-  push:
-    branches: 
-      - master
+    push:
+        branches:
+            - master
 jobs:
-  test:
-    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node_version: [11, 12, 13]
-        os: [ubuntu-latest, macOS-latest]
-    steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node_version }}
-    
-      - name: install mhy globally
-        run: npm i -g mhy@latest
+    test:
+        name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+        runs-on: ${{ matrix.os }}
+        strategy:
+            matrix:
+                node_version: [10, 11, 12, 13, 14]
+                os: [ubuntu-latest]
+        steps:
+            - uses: actions/checkout@v1
+            - name: Use Node.js ${{ matrix.node_version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node_version }}
 
-      - name: npm install, build and test
-        if: success()
-        run: |
-          npm install
-          npm run build
-          npm test
+            - name: install mhy globally
+              run: npm i -g mhy@latest
 
-  release:
-    needs: test
-    name: Release on node ${{ matrix.node_version }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node_version: [12]
-        os: [ubuntu-latest]
-    steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
+            - name: npm install, build and test
+              if: success()
+              run: |
+                  npm install
+                  npm run build
+                  npm test
 
-      - name: install mhy globally
-        run: npm i -g mhy@latest
+    release:
+        needs: test
+        name: Release on node ${{ matrix.node_version }} and ${{ matrix.os }}
+        runs-on: ${{ matrix.os }}
+        strategy:
+            matrix:
+                node_version: [12]
+                os: [ubuntu-latest]
+        steps:
+            - uses: actions/checkout@v1
+            - name: Use Node.js ${{ matrix.node_version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 12
+                  registry-url: https://registry.npmjs.org/
 
-      - name: Publihing...
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+            - name: install mhy globally
+              run: npm i -g mhy@latest
+
+            - name: Publihing...
+              run: npm publish
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 # name: Node.js Package
 
 # on:
 #   push:
-#     branches: 
+#     branches:
 #       - master
 # jobs:
 #   build:
@@ -66,10 +66,10 @@ jobs:
 #       - uses: actions/setup-node@v1
 #         with:
 #           node-version: 12
-          
+
 #       - name: install mhy globally
 #         run: npm i -g mhy@latest
-      
+
 #       - name: npm install, build and test
 #       - run: |
 #           npm install

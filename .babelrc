@@ -1,64 +1,57 @@
 {
-  "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "modules": false,
-        "targets": {
-          "browsers": [
-            "last 2 versions",
-            "ie >= 8"
-          ]
-        }
-      }
-    ]
-  ],
   "plugins": [
-    "transform-es2015-modules-commonjs",
-    // Stage 0
-    "@babel/plugin-proposal-function-bind",
-    // Stage 1
-    "@babel/plugin-proposal-export-default-from",
-    "@babel/plugin-proposal-logical-assignment-operators",
+    "/Users/pablohpsilva/.nvm/versions/node/v10.16.3/lib/node_modules/mhy/node_modules/babel-plugin-macros/dist/index.js",
+    "/Users/pablohpsilva/.nvm/versions/node/v10.16.3/lib/node_modules/mhy/node_modules/@babel/plugin-syntax-dynamic-import/lib/index.js",
+    "/Users/pablohpsilva/.nvm/versions/node/v10.16.3/lib/node_modules/mhy/node_modules/@babel/plugin-syntax-top-level-await/lib/index.js",
+    "/Users/pablohpsilva/.nvm/versions/node/v10.16.3/lib/node_modules/mhy/node_modules/babel-plugin-transform-remove-strict-mode/lib/index.js",
+    "/Users/pablohpsilva/.nvm/versions/node/v10.16.3/lib/node_modules/mhy/node_modules/@babel/plugin-proposal-class-properties/lib/index.js",
+    "/Users/pablohpsilva/.nvm/versions/node/v10.16.3/lib/node_modules/mhy/node_modules/@babel/plugin-transform-object-assign/lib/index.js",
     [
-      "@babel/plugin-proposal-optional-chaining",
-      {
-        "loose": false
-      }
-    ],
-    [
-      "@babel/plugin-proposal-pipeline-operator",
-      {
-        "proposal": "minimal"
-      }
-    ],
-    [
-      "@babel/plugin-proposal-nullish-coalescing-operator",
-      {
-        "loose": false
-      }
-    ],
-    "@babel/plugin-proposal-do-expressions",
-    // Stage 2
-    [
-      "@babel/plugin-proposal-decorators",
+      "/Users/pablohpsilva/.nvm/versions/node/v10.16.3/lib/node_modules/mhy/node_modules/@babel/plugin-syntax-decorators/lib/index.js",
       {
         "legacy": true
       }
     ],
-    "@babel/plugin-proposal-function-sent",
-    "@babel/plugin-proposal-export-namespace-from",
-    "@babel/plugin-proposal-numeric-separator",
-    "@babel/plugin-proposal-throw-expressions",
-    // Stage 3
-    "@babel/plugin-syntax-dynamic-import",
-    "@babel/plugin-syntax-import-meta",
+    "/Users/pablohpsilva/.nvm/versions/node/v10.16.3/lib/node_modules/mhy/node_modules/babel-plugin-syntax-async-functions/lib/index.js",
+    "/Users/pablohpsilva/.nvm/versions/node/v10.16.3/lib/node_modules/mhy/node_modules/babel-plugin-transform-function-bind/lib/index.js",
+    "/Users/pablohpsilva/.nvm/versions/node/v10.16.3/lib/node_modules/mhy/node_modules/@babel/plugin-proposal-export-default-from/lib/index.js",
+    "/Users/pablohpsilva/.nvm/versions/node/v10.16.3/lib/node_modules/mhy/node_modules/@babel/plugin-proposal-export-namespace-from/lib/index.js",
+    "/Users/pablohpsilva/.nvm/versions/node/v10.16.3/lib/node_modules/mhy/node_modules/@babel/plugin-proposal-nullish-coalescing-operator/lib/index.js",
+    "/Users/pablohpsilva/.nvm/versions/node/v10.16.3/lib/node_modules/mhy/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",
     [
-      "@babel/plugin-proposal-class-properties",
+      "/Users/pablohpsilva/.nvm/versions/node/v10.16.3/lib/node_modules/mhy/node_modules/babel-plugin-module-resolver/lib/index.js",
       {
-        "loose": false
+        "root": [],
+        "alias": {
+          "@": "./src",
+          "@/mhy": "/Users/pablohpsilva/.nvm/versions/node/v10.16.3/lib/node_modules/mhy/dist"
+        }
       }
     ],
-    "@babel/plugin-proposal-json-strings"
+    "/Users/pablohpsilva/.nvm/versions/node/v10.16.3/lib/node_modules/mhy/node_modules/react-hot-loader/babel.js"
+  ],
+  "presets": [
+    [
+      "/Users/pablohpsilva/.nvm/versions/node/v10.16.3/lib/node_modules/mhy/node_modules/@babel/preset-env/lib/index.js",
+      {
+        "targets": {
+          "chrome": 78,
+          "edge": 15,
+          "esmodules": false
+        },
+        "modules": false
+      }
+    ],
+    [
+      "/Users/pablohpsilva/.nvm/versions/node/v10.16.3/lib/node_modules/mhy/node_modules/@babel/preset-react/lib/index.js",
+      {}
+    ],
+    [
+      "/Users/pablohpsilva/.nvm/versions/node/v10.16.3/lib/node_modules/mhy/node_modules/@babel/preset-typescript/lib/index.js",
+      {
+        "isTSX": true,
+        "allExtensions": true
+      }
+    ]
   ]
 }
