@@ -39,8 +39,8 @@ jobs:
         steps:
             - uses: actions/checkout@v2
 
-            # - name: install mhy globally
-            #   run: npm i -g mhy@latest
+            - name: install mhy globally
+              run: npm i -g mhy@latest
 
             - name: clean project
               run: npm run prerelease
@@ -71,8 +71,8 @@ jobs:
                   node-version: 12
                   registry-url: https://registry.npmjs.org/
 
-            # - name: install mhy globally
-            #   run: npm i -g mhy@latest
+            - name: install mhy globally
+              run: npm i -g mhy@latest
 
             - name: Publihing...
               run: npm publish
