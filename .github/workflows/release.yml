@@ -47,6 +47,12 @@ jobs:
             - name: install mhy globally
               run: npm i -g mhy@latest
 
+            - name: clean project
+              run: npm run prerelease
+
+            - name: release project
+              run: npm run release
+
             - name: Publihing...
               run: npm publish
               env:
