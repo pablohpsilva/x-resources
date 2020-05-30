@@ -50,7 +50,7 @@ export const createResources = (HttpClientLibrary, name, action, baseURL) => {
     [name]() {
       let params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       let extra = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      return httpClientLibraryMethod(prepareBaseURL(baseURL, action.url, params), _objectSpread({}, params, {
+      return httpClientLibraryMethod(prepareBaseURL(baseURL, action.url, params), _objectSpread(_objectSpread({}, params), {}, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -63,7 +63,7 @@ export const resources = curry(function (baseURL) {
   let customActions = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   let options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-  const actions = _objectSpread({}, getDefaultActions(), {}, customActions);
+  const actions = _objectSpread(_objectSpread({}, getDefaultActions()), customActions);
 
   const axiosInstance = options.axiosInstance || axios;
   return Object.keys(actions).reduce((acc, key) => _extends(acc, createResources(axiosInstance, key, actions[key], baseURL)), {});
