@@ -43,11 +43,7 @@ jobs:
 
             - name: update github tags
               if: success()
-              run: |
-                  git config --global user.name 'pablohpsilva'
-                  git config --global user.email 'pablohpsilva@users.noreply.github.com'
-                  # git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
-                  git push --follow-tags origin master
+              run: git push --follow-tags origin master
 
     # build:
     #     needs: testbuild
