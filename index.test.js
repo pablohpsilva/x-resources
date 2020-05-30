@@ -7,8 +7,8 @@ const simpleActions = {
   fetchSpecificUser: { method: "GET", url: "/users/:username" },
   fetchSpecificUserQueryParam: {
     method: "DELETE",
-    url: "/users/:username?id=:id"
-  }
+    url: "/users/:username?id=:id",
+  },
 };
 
 const baseURL = "https://api.github.com";
@@ -23,11 +23,11 @@ test("create resource using axios", async () => {
   expect(Object.keys(simpleResource).length).toBe(9);
   const resourceCreated = Object.values(simpleResource);
 
-  expect(resourceCreated.every(el => el instanceof Function)).toBe(true);
+  expect(resourceCreated.every((el) => el instanceof Function)).toBe(true);
 });
 
 test("fetchUsers from resource", async () => {
-  const response = await simpleResource.fetchUsers().catch(error => {
+  const response = await simpleResource.fetchUsers().catch((error) => {
     throw error;
   });
 
@@ -41,15 +41,13 @@ test("fetchUsers from resource", async () => {
     expect(Object.prototype.hasOwnProperty.call(user, "login")).toBe(true);
   }
 
-  expect(response.request.res.client._httpMessage.res.responseUrl).toBe(
-    `${baseURL}/users`
-  );
+  expect(response.config.url).toBe(`${baseURL}/users`);
 });
 
 test("fetchSpecificUser from resource", async () => {
   const response = await simpleResource
     .fetchSpecificUser({ username, id })
-    .catch(error => {
+    .catch((error) => {
       throw error;
     });
 
@@ -58,7 +56,5 @@ test("fetchSpecificUser from resource", async () => {
   expect(data instanceof Object).toBe(true);
   expect(data.login).toBe(username);
 
-  expect(response.request.res.client._httpMessage.res.responseUrl).toBe(
-    `${baseURL}/users/${username}`
-  );
+  expect(response.config.url).toBe(`${baseURL}/users/${username}`);
 });
