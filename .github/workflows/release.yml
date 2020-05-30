@@ -9,7 +9,7 @@ jobs:
         runs-on: ${{ matrix.os }}
         strategy:
             matrix:
-                node_version: [10, 11, 12, 13, 14]
+                node_version: [10, 12, 14]
                 os: [ubuntu-latest]
         steps:
             - uses: actions/checkout@v1
@@ -31,6 +31,12 @@ jobs:
                   npm run build
                   npm test
 
+            - name: who am I
+              if: success()
+              run: |
+                  git config --global user.name 'pablohpsilva'
+                  git config --global user.email 'pablohpsilva@users.noreply.github.com'
+
             - name: release project
               if: success()
               run: npm run release
@@ -40,7 +46,7 @@ jobs:
               run: |
                   git config --global user.name 'pablohpsilva'
                   git config --global user.email 'pablohpsilva@users.noreply.github.com'
-                  git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+                  # git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
                   git push --follow-tags origin master
 
     # build:
