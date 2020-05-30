@@ -6,7 +6,8 @@
     "scripts": {
         "build": "npm run install-peers && mhy bb --mhy-env=prod",
         "start": "mhy bb --mhy-env=prod -- --watch",
-        "prerelease": "mhy prettier && mhy eslint --fix",
+        "config": "mhy config -io",
+        "prerelease": "npm run config && mhy prettier && mhy eslint --fix",
         "release": "mhy sv",
         "install-peers": "npm i && mhy dep install peers",
         "test": "mhy jest"

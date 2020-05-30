@@ -28,6 +28,20 @@ jobs:
                   npm run build
                   npm test
 
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: install mhy globally
+              run: npm i -g mhy@latest
+
+            - name: clean project
+              run: npm run prerelease
+
+            - name: release project
+              run: npm run release
+
     release:
         needs: test
         name: Release on node ${{ matrix.node_version }} and ${{ matrix.os }}
@@ -46,12 +60,6 @@ jobs:
 
             - name: install mhy globally
               run: npm i -g mhy@latest
-
-            - name: clean project
-              run: npm run prerelease
-
-            - name: release project
-              run: npm run release
 
             - name: Publihing...
               run: npm publish
